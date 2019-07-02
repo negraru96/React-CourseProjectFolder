@@ -1,0 +1,43 @@
+//**Hooks Method**
+//Shown in early lessons
+  // const App = props => {
+  // const [ personsState, setPersonsState ] = useState({
+  //   persons: [
+  //     { name: 'Timothy', age: 27 },
+  //     { name: 'Jim', age: 29 },
+  //   ],
+  // });
+  //
+  // const [ otherState, setOtherState ] = useState("another value");
+  //
+  // console.log(personsState, otherState);
+  //
+  // const switchNameHandler = () => {
+  //   //console.log('Was clicked!');
+  //   // this.state.persons[0].name = "Theodore"
+  //   setPersonsState({
+  //     persons: [
+  //       { name: 'Theodore ', age: 27 },
+  //       { name: 'Jim', age: 30 },
+  //     ]
+  //   });
+  // };
+  //
+  //   return (
+  //   <div className="App">
+  //     <h1>Hello World</h1>
+  //     <p>This is fantastic!</p>
+  //     <button onClick={switchNameHandler}>Switch Name</button>
+  //     <Person
+  //       name={personsState.persons[0].name}
+  //       age={personsState.persons[0].age}>I like Sushi!</Person>
+  //     <Person
+  //       name={personsState.persons[1].name}
+  //       age={personsState.persons[1].age}
+  //       click={switchNameHandler}>My Hobbies: Swimming</Person>
+  //   </div>
+  //   );
+  // //return React.createElement('div', {className: 'App'}, React.createElement('div', null, React.createElement('h1', null, 'Does this work?')));
+  // }
+  //
+  // export default App;
