@@ -34,8 +34,9 @@ this.setState( {
 
 togglePersonsHandler = () => {
 const doesShow = this.state.showPersons;
-this.setState({showPerson: !doesShow});
+this.setState({showPersons: !doesShow} );
 }
+
 render () {
 const style = {
   backgroundColor: 'white',
@@ -49,8 +50,8 @@ let persons = null;
 
 if (this.state.showPersons) {
   persons = (
-    <div>
-    <Person
+      <div>
+      <Person
         name={this.state.persons[0].name}
         age={this.state.persons[0].age}>I like Sushi!</Person>
       <Person
@@ -64,11 +65,12 @@ if (this.state.showPersons) {
 
 return (
 <div className="App">
-  <h1>Hello World</h1>
-  <p>This is fantastic!</p>
+  <h1>React App</h1>
+  <p>Modify Information</p>
   <button
   style={style}
-  onClick={this.togglePersonsHandler}>Switch Name</button>
+  onClick={this.togglePersonsHandler}>Toggle Persons</button>
+  {persons}
 </div>
 );
 //return React.createElement('div', {className: 'App'}, React.createElement('div', null, React.createElement('h1', null, 'Does this work?')));
