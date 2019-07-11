@@ -1,76 +1,43 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
+import Validation from './Validation/Validation';
+import Char from './Char/Char';
 
 class App extends Component {
   state = {
-   persons: [
-      { id: 'ght2', name: 'Timothy', age: 27 },
-      { id: 'ale1', name: 'Jim', age: 29 },
-      { id: 'fjo9', name:'Thomas', age: 19},
-      { id: 'kef2', name:'Chanelle', age: 24},
-    ],
-  otherState: 'another value',
-  showPersons: false
-};
+    userInput: ''
+  };
 
-nameChangedHandler = (event) => {
-this.setState( {
-  persons: [
-    { name: 'Timothy', age: 28 },
-    { name: event.target.value, age: 29 },
-  ]
-})
+inputChangedHandler = (event) => {
+  this.setState({userInput: event.target.value});
 }
 
-deletePersonHandler = (personIndex) => {
-  //const persons = this.state.persons.slice();
-  const persons = [...this.state.persons];
-  persons.splice(personIndex, 1);
-  this.setState({persons: persons});
+deleteCharHandler = (index) => {
+  const char = this.state.userInput.split('');
+  char.splice(index, 1);
+  const updated = char.join('');
+  this.setState({userInput: updated});
 }
-
-togglePersonsHandler = () => {
-const doesShow = this.state.showPersons;
-this.setState({showPersons: !doesShow} );
-}
-
-render () {
-const style = {
-  backgroundColor: 'white',
-  font: 'inherit',
-  border: '1px solid blue',
-  padding: '8px',
-  cursor: 'pointer'
-};
-
-let persons = null;
-
-if (this.state.showPersons) {
-  persons = (
-      <div>
-      {this.state.persons.map((person, index) => {
-        return <Person
-        click={() => this.deletePersonHandler(index)}
-        name={person.name}
-        age={person.age}
-        key={person.id}/>
-      })}
-      </div>
-  );
-}
-
+render() {
+  const charList = this.state.userInput.split('').map((char, index) => {
+    return <Char
+    character={char}
+    key={index}
+    click={() => this.deleteCharHandler(index)}/>;
+  });
 return (
 <div className="App">
   <h1>React App</h1>
-  <p>Modify Information</p>
-  <button
-  style={style}
-  onClick={this.togglePersonsHandler}>Toggle Persons</button>
-  {persons}
+  <p>Input</p>
+  <input
+  type="text"
+  onChange={this.inputChangedHandler}
+  value={this.state.userInput} />
+  <p>{this.state.userInput}</p>
+  <Validation inputLength={this.state.userInput.length}/>
+  {charList}
 </div>
 );
-//return React.createElement('div', {className: 'App'}, React.createElement('div', null, React.createElement('h1', null, 'Does this work?')));
 }
 }
 export default App;
