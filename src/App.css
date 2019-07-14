@@ -6,7 +6,9 @@ body {
   background-color: cyan;
   padding: 100px;
 }
-
+div {
+  text-align: center;
+}
 button {
 
 }
