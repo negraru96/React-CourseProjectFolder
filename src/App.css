@@ -10,9 +10,26 @@ div {
   text-align: center;
 }
 button {
-
+  background-color: #eee;
+  font: inherit;
+  border: 2px solid black;
+  padding: 8px;
+  cursor: pointer;
 }
 
+button:hover {
+  background-color: cyan;
+  color: black;
+}
+
+button.Red{
+  background-color: red;
+}
+
+button.Red:hover {
+  background-color: yellow;
+  color: black;
+}
 .red{
   color: red;
 }
