@@ -52,7 +52,7 @@ let btnClass = '';
 if (this.state.showPersons) {
   persons = (
       <div>
-      <Persons
+      <Person
         persons={this.state.persons}
         clicked={this.deletePersonHandler}
         changed={this.nameChangedHandler}/>
