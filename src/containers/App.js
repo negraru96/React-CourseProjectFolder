@@ -5,23 +5,40 @@ import Person from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
-   persons: [
-      { id: 'ght2', name: 'Timothy', age: 27 },
-      { id: 'ale1', name: 'Jim', age: 29 },
-      { id: 'fjo9', name:'Thomas', age: 19},
-      { id: 'kef2', name:'Chanelle', age: 24},
-      { id: 'kjf2', name:'Shaunice', age: 26},
-      { id: 'kkg9', name:'Ara', age: 30},
-    ],
-  otherState: 'another value',
-  showPersons: false
-};
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructor');
+    this.state = {
+      persons: [
+         { id: 'ght2', name: 'Timothy', age: 27 },
+         { id: 'ale1', name: 'Jim', age: 29 },
+         { id: 'fjo9', name:'Thomas', age: 19},
+         { id: 'kef2', name:'Chanelle', age: 24},
+         { id: 'kjf2', name:'Shaunice', age: 26},
+         { id: 'kkg9', name:'Ara', age: 30},
+       ],
+     otherState: 'another value',
+     showPersons: false
+    }
+  }
 
-nameChangedHandler = (event, id ) => {
-  const personIndex = this.state.persons.findIndex(per => {
-    return per.id === id;
-  });
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+  }
+
+  componentWillMount() {
+    console.log('[App.js] componentWillMount.');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount.');
+  }
+
+  nameChangedHandler = (event, id ) => {
+    const personIndex = this.state.persons.findIndex(per => {
+      return per.id === id;
+    });
 
   const person = {
     ...this.state.persons[personIndex]
@@ -50,6 +67,7 @@ this.setState({showPersons: !doesShow} );
 }
 
 render () {
+  console.log('[App.js] render');
 let persons = null;
 
 if (this.state.showPersons) {
