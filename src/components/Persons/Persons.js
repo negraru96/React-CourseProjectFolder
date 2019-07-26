@@ -3,10 +3,7 @@ import React, { Component } from 'react';
 import Person from './Person/Person';
 
 class Persons extends Component {
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log('[Persons.js] getDerivedStateFromProps');
-  //   return state;
-  // }
+
 
   componentWillReceiveProps(props) {
     console.log('[Persons.js] componentWillReceiveProps', props);
@@ -22,8 +19,8 @@ class Persons extends Component {
     return { message: 'Snapshot!' };
   }
 
-  componentsDidUpdate(prevProps, prevState, snapshot) {
-    console.log('[Persons.js] componentsDidUpdate');
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('[Persons.js] componentDidUpdate');
     console.log(snapshot);
   }
 
