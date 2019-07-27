@@ -18,7 +18,8 @@ class App extends Component {
          { id: 'kkg9', name:'Ara', age: 30},
        ],
      otherState: 'another value',
-     showPersons: false
+     showPersons: false,
+     showCockpit: true
     }
   }
 
@@ -37,7 +38,11 @@ class App extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('[App.js] shouldComponentUpdate');
-    return true;
+    if (nextProps.persons !== this.props.persons) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   componentDidUpdate() {
@@ -96,11 +101,17 @@ if (this.state.showPersons) {
 
 return (
 <div className={classes.App}>
-  <Cockpit
+<button onClick={() => {
+  this.setState({ showCockpit: false });
+}}
+  >Remove Cockpit</button>
+  {this.state.showCockpit ? (
+    <Cockpit
     title={this.props.appTitle}
     showPersons={this.state.showPersons}
     persons={this.state.persons}
     clicked={this.togglePersonsHandler} />
+  ) : null }
   {persons}
 </div>
 );
